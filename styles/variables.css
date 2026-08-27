@@ -1,8 +1,8 @@
 :root {
-    --font-primary: ;
-    --font-secondary: ;
-    --background-primary: ;
-    --background-secondary: ;
-    --border: ;
-    --border-radius: ;
+    --font-primary: rgb(32, 32, 32);
+    --accent: rgb(230, 0, 18);
+    --background-primary: rgb(216, 216, 216);
+    --background-secondary: rgb(102, 102, 102);
+    --border: 2px solid rgb(32, 32, 32);
+    --border-radius: 32px;
 }
