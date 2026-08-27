@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Oberes hellgraues Gehäuse -->
+  <rect x="10" y="25" width="80" height="50" rx="2" fill="#D8D8D8" stroke="#202020" stroke-width="3" />
+  <!-- Untere dunkelgraue Hälfte -->
+  <rect x="10" y="50" width="80" height="25" fill="#666666" />
+  <line x1="10" y1="50" x2="90" y2="50" stroke="#202020" stroke-width="2" />
+  <!-- Schwarze Frontblende -->
+  <rect x="16" y="55" width="42" height="15" rx="1" fill="#202020" />
+  <!-- Controller-Anschlüsse -->
+  <rect x="22" y="60" width="10" height="5" rx="1" fill="#666666" />
+  <rect x="38" y="60" width="10" height="5" rx="1" fill="#666666" />
+  <!-- Power & Reset Knöpfe -->
+  <rect x="65" y="58" width="8" height="8" rx="1" fill="#D8D8D8" stroke="#202020" stroke-width="1.5" />
+  <rect x="76" y="58" width="8" height="8" rx="1" fill="#D8D8D8" stroke="#202020" stroke-width="1.5" />
+  <!-- Rote Power-LED -->
+  <circle cx="61" cy="62" r="1.5" fill="#E60012" />
+  <!-- Schwarze Lüftungsrillen oben -->
+  <line x1="20" y1="28" x2="20" y2="50" stroke="#202020" stroke-width="2" />
+  <line x1="25" y1="28" x2="25" y2="50" stroke="#202020" stroke-width="2" />
+  <line x1="30" y1="28" x2="30" y2="50" stroke="#202020" stroke-width="2" />
+</svg>

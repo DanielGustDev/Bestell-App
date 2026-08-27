@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Gehäuse -->
+  <rect x="22" y="8" width="56" height="84" rx="6" fill="#D8D8D8" stroke="#202020" stroke-width="3"/>
+  <!-- Display-Rahmen -->
+  <rect x="28" y="16" width="44" height="32" rx="3" fill="#555555" />
+  <!-- Grüner Pixel-Bildschirm -->
+  <rect x="35" y="21" width="30" height="22" rx="1" fill="#8BAC0F" />
+  <!-- Power LED -->
+  <circle cx="31" cy="32" r="1.5" fill="#E60012" />
+  <!-- Steuerkreuz (D-Pad) -->
+  <path d="M 36 57 h -4 v 4 h -4 v 4 h 4 v 4 h 4 v -4 h 4 v -4 h -4 z" fill="#202020" />
+  <!-- A/B Buttons (Magenta / Burgundy) -->
+  <circle cx="68" cy="62" r="4" fill="#8A1B4A" />
+  <circle cx="58" cy="67" r="4" fill="#8A1B4A" />
+  <!-- Select / Start -->
+  <rect x="40" y="79" width="7" height="2.5" rx="1" transform="rotate(-25 40 79)" fill="#666666" />
+  <rect x="50" y="79" width="7" height="2.5" rx="1" transform="rotate(-25 50 79)" fill="#666666" />
+  <!-- Lautsprecher-Schlitze -->
+  <line x1="62" y1="84" x2="68" y2="78" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" />
+  <line x1="66" y1="86" x2="72" y2="80" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" />
+</svg>
