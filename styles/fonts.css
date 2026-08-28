@@ -4,7 +4,7 @@
     font-family: 'Silkscreen';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/silkscreen-v6-latin-regular.woff2') format('woff2');
+    src: url('../assets/fonts/silkscreen-v6-latin-regular.woff2') format('woff2');
 }
 
 /* Text */
@@ -13,7 +13,7 @@
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+    src: url('../assets/fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
 }
 
 /* Headline */
@@ -22,5 +22,5 @@
     font-family: 'Pixelify Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/pixelify-sans-v3-latin-regular.woff2') format('woff2');
+    src: url('../assets/fonts/pixelify-sans-v3-latin-regular.woff2') format('woff2');
 }

@@ -1,0 +1,40 @@
+header {
+    background-color: var(--background-primary);
+    height: 128px;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1440px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-left: max(calc(50% - 720px), 140px);
+}
+
+.header-logo-icon {
+    height: clamp(35px, 6vw, 64px);
+    width: clamp(32px, 5.5vw, 56px);
+}
+
+.logo-text {
+    font-family: "Pixelify Sans";
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 0.85;
+}
+
+header nav {
+    padding-right: max(calc(50% - 720px), 140px);
+}
