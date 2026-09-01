@@ -1,8 +1,9 @@
 :root {
     --font-primary: rgb(32, 32, 32);
-    --accent: rgb(230, 0, 18);
+    --accent: rgb(138, 27, 74);
     --background-primary: rgb(216, 216, 216);
     --background-secondary: rgb(102, 102, 102);
+    --background-tertiary: rgb(139, 172, 15);
     --border: 2px solid rgb(32, 32, 32);
     --border-radius: 32px;
 }

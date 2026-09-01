@@ -6,6 +6,8 @@
 
 html {
     font-size: 16px;
+
+    color: var(--font-primary);
 }
 
 h1 {

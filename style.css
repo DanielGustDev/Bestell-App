@@ -86,3 +86,33 @@ header nav {
 
     transform: translateY(-50%);
 }
+
+.name-and-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.name-and-rating span {
+    color: var(--accent);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 4px;
+
+    background-color: var(--background-tertiary);
+}
+
+.rating p {
+    font-family: 'Space Grotesk';
+    font-weight: bold;
+}
+
+.rating span {
+    color: var(--background-primary);
+}
