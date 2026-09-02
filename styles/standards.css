@@ -20,5 +20,14 @@ h1 {
 
 h2 {
     font-family: 'Silkscreen';
+    font-size: 2rem;
+}
+
+h3 {
+    font-family: 'Silkscreen';
     font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Space Grotesk';
 }
