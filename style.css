@@ -115,4 +115,6 @@ header nav {
 
 .rating span {
     color: var(--background-primary);
+
+    font-weight: 200;
 }
