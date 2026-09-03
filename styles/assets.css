@@ -1,0 +1,5 @@
+/* Kategorie-Trenner Im CSS steuern */
+.category-games h2::before {
+    content: "";
+    background-image: url('./assets/icons/gamepad.svg');
+}
