@@ -1,5 +1,42 @@
-/* Kategorie-Trenner Im CSS steuern */
+.category-block h2 {
+    background-color: var(--background-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .category-games h2::before {
     content: "";
-    background-image: url('./assets/icons/gamepad.svg');
+    background-image: url('../assets/icons/gameboy-cartridge-icon.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+}
+
+.category-consoles h2::before {
+    content: "";
+    background-image: url('../assets/icons/gameboy-icon.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+}
+
+.category-periphery h2::before {
+    content: "";
+    background-image: url('../assets/icons/nes-controller-icon.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: inline-block;
+    width: 90px;
+    height: 90px;
 }

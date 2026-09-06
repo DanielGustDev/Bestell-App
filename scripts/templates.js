@@ -6,9 +6,14 @@ function getSingleProductTemplate(product) {
   return `
         <article class="product-card">
             <img src="${product.image}" alt="${product.name}">
-            <h4>${product.name}</h4>
+            <div class="product-title">
+            <h3>${product.name}</h4>
             <p>${product.description}</p>
-            <div class="price">${formattedPrice} €</div>
+            </div>
+            <div class="price-plus-button">
+            <p>${formattedPrice} €</p>
+            <button>Add to basket</button>
+            </div>
         </article>
     `;
 }

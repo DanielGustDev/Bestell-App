@@ -36,11 +36,11 @@ const products = [
   },
   {
     "id": "g5",
-    "name": "Super Mario Bros. (NES)",
+    "name": "Super Mario Bros. (SNES)",
     "category": "games",
     "price": 24.9,
-    "image": "assets/imgs/Super-Mario-NES.webp",
-    "description": "The timeless platforming classic for the NES.",
+    "image": "assets/imgs/Super-Mario-SNES.webp",
+    "description": "The timeless platforming classic for the SNES.",
   },
   {
     "id": "g6",
@@ -92,6 +92,14 @@ const products = [
     "image": "assets/imgs/SNES-Model-2-Set.webp",
     "description":
       "Super Nintendo Entertainment System (Model 2 / Redesign) complete set.",
+  },
+  {
+    "id": "c6",
+    "name": "Game Boy",
+    "category": "consoles",
+    "price": 139.9,
+    "image": "assets/imgs/Game-Boy-Original.webp",
+    "description": "Nintendo Game Boy handheld console in Original Grey.",
   },
   {
     "id": "p2",
