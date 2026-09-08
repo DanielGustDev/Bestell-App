@@ -1,44 +1,55 @@
-.category-block h2 {
-    background-color: var(--background-tertiary);
+button {
+    background-color: transparent;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.category-header {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    width: 100%;
+
+    margin-top: 45px;
+    margin-bottom: 25px;
 }
 
-.category-games h2::before {
-    content: "";
+.category-icon {
+    position: absolute;
+    left: 10px;
+
+    width: 90px;
+    height: 90px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    z-index: 2;
+}
+
+.category-header h2 {
+    width: 100%;
+
+    padding-left: 100px;
+
+    background-color: var(--background-tertiary);
+
+    color: var(--font-primary);
+}
+
+.games .category-icon {
     background-image: url('../assets/icons/gameboy-cartridge-icon.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: inline-block;
-    width: 90px;
-    height: 90px;
 }
 
-.category-consoles h2::before {
-    content: "";
+.consoles .category-icon {
     background-image: url('../assets/icons/gameboy-icon.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: inline-block;
-    width: 90px;
-    height: 90px;
 }
 
-.category-periphery h2::before {
-    content: "";
+.periphery .category-icon {
     background-image: url('../assets/icons/nes-controller-icon.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: inline-block;
-    width: 90px;
-    height: 90px;
 }
 
 .product-card {

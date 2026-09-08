@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // 1. HAUPTFUNKTION: Steuert nur den Gesamtablauf
 function init() {
   renderCategories();

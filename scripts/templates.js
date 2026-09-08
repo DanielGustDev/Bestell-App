@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // 1. Erstellt das HTML für eine einzelne Produktkarte
 function getSingleProductTemplate(product) {
   // Wandelt den Punkt in ein Komma um
@@ -20,9 +22,13 @@ function getSingleProductTemplate(product) {
 
 // 2. Erstellt das HTML für eine komplette Kategorie-Sektion
 function getCategorySectionTemplate(categoryTitle, productsHtml) {
+  const categoryClass = categoryTitle.toLowerCase();
   return `
-        <section class="category-block category-${categoryTitle.toLowerCase()}">
-            <h2>${categoryTitle}</h2>
+        <section class="category-block">
+            <div class="category-header ${categoryClass}">
+                <div class="category-icon"></div>
+                <h2>${categoryTitle}</h2>
+            </div>
             <div class="products-grid">
                 ${productsHtml}
             </div>
