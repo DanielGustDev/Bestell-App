@@ -36,7 +36,7 @@ function getCategorySectionTemplate(categoryTitle, productsHtml) {
     `;
 }
 
-// Template für eine Zeile im Warenkorb
+// Template für ein Produkt im Warenkorb
 function getBasketItemTemplate(item) {
   const totalItemPrice = (item.price * item.amount)
     .toFixed(2)
@@ -54,8 +54,9 @@ function getBasketItemTemplate(item) {
 
   return `
         <div class="basket-item">
-            <p class="basket-item-title">${item.name}</p>
+            <p class="basket-item-title">${item.amount} x ${item.name}</p>
             <div class="basket-controls">
+            <div class="amount-buttons">
                 ${minusOrDeleteButton}
                 <p>${item.amount}</p>
                 <button onclick="increaseAmount('${item.id}')">+</button>
