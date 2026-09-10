@@ -1,3 +1,5 @@
+let basket = [];
+
 const products = [
   {
     "id": "g1",

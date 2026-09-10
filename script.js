@@ -45,3 +45,86 @@ function createProductListHtml(productList) {
   }
   return html;
 }
+
+// 1. Haupt-Renderfunktion für den Warenkorb
+function renderBasket() {
+  const basketContainer = document.getElementById("basket");
+  basketContainer.innerHTML = "";
+
+  if (basket.length === 0) {
+    basketContainer.innerHTML =
+      '<p class="empty-basket">Dein Warenkorb ist leer.</p>';
+    return;
+  }
+
+  let itemsHtml = "";
+  let subtotal = 0;
+
+  // Warenkorb-Elemente durchlaufen
+  for (let i = 0; i < basket.length; i++) {
+    const item = basket[i];
+    subtotal += item.price * item.amount;
+    itemsHtml += getBasketItemTemplate(item);
+  }
+
+  const shipping = 9.9;
+  const total = subtotal + shipping;
+
+  // Warenkorb im HTML zusammensetzen
+  basketContainer.innerHTML =
+    itemsHtml + getBasketSummaryTemplate(subtotal, shipping, total);
+}
+
+// 2. Produkt zum Warenkorb hinzufügen
+function addToBasket(productId) {
+  // Produkt aus der Datenbank suchen
+  const product = products.find((p) => p.id === productId);
+
+  // Prüfen, ob Produkt schon im Warenkorb ist
+  const basketItem = basket.find((item) => item.id === productId);
+
+  if (basketItem) {
+    basketItem.amount++;
+  } else {
+    // Kopie des Produkts mit Eigenschaft 'amount' im Warenkorb ablegen
+    basket.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      amount: 1,
+    });
+  }
+
+  renderBasket();
+}
+
+// 3. Anzahl erhöhen (+)
+function increaseAmount(productId) {
+  const basketItem = basket.find((item) => item.id === productId);
+  if (basketItem) {
+    basketItem.amount++;
+    renderBasket();
+  }
+}
+
+// 4. Anzahl verringern (-)
+function decreaseAmount(productId) {
+  const basketItem = basket.find((item) => item.id === productId);
+  if (basketItem && basketItem.amount > 1) {
+    basketItem.amount--;
+    renderBasket();
+  }
+}
+
+// 5. Produkt komplett löschen
+function deleteBasketItem(productId) {
+  basket = basket.filter((item) => item.id !== productId);
+  renderBasket();
+}
+
+// 6. Checkout-Dummy
+function checkout() {
+  alert("Vielen Dank für deine Bestellung!");
+  basket = [];
+  renderBasket();
+}
