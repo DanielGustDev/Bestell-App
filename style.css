@@ -121,3 +121,19 @@ header nav {
 
     font-weight: 200;
 }
+
+.content {
+    display: flex;
+    flex-grow: 1;
+}
+
+.basket-rail {
+    flex-grow: 1;
+}
+
+.basket-card {
+    margin-top: 100px;
+
+    position: sticky;
+    top: 0;
+}
