@@ -6,38 +6,15 @@ button {
     cursor: pointer;
 }
 
-.category-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    margin-top: 45px;
-    margin-bottom: 25px;
-}
-
 .category-icon {
-    position: absolute;
-    left: 10px;
-
     width: 90px;
     height: 90px;
+
+    flex-shrink: 0;
 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    z-index: 2;
-}
-
-.category-header h2 {
-    width: 100%;
-
-    padding-left: 100px;
-
-    background-color: var(--background-tertiary);
-
-    color: var(--font-primary);
 }
 
 .games .category-icon {
@@ -85,6 +62,4 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-
 }

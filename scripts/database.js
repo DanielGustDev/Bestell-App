@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 let basket = [];
 
 const products = [

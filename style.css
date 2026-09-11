@@ -124,21 +124,83 @@ header nav {
 
 .content {
     display: flex;
-    flex-grow: 1;
+
+    width: 100%;
+    max-width: 1440px;
+}
+
+.category-block {
+    width: 100%;
+}
+
+.category-header-band {
+    width: 100vw;
+
+    margin-left: calc(50% - 50vw);
+
+    background-color: var(--background-tertiary);
+}
+
+.category-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    max-width: 1440px;
+    height: 60px;
+}
+
+.category-header-content h2 {
+    color: var(--font-primary);
 }
 
 .basket-rail {
-    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    width: 400px;
 }
 
 .basket-card {
-    height: 800px;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 400px;
+    height: 600px;
     width: 400px;
 
-    margin-top: 100px;
-
     position: sticky;
-    top: 0;
+    top: 10px;
+
+    background-color: var(--background-secondary);
+
+    color: var(--background-primary);
+
+    border-radius: 24px 0 0 24px;
+    padding: 24px;
+
+    z-index: 4;
+}
+
+.basket-card h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.empty-basket-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    gap: 32px;
+}
+
+.empty-basket-content p {
+    line-height: 1.4;
+
+    margin: 0;
 }
 
 .basket-item {
@@ -157,7 +219,27 @@ header nav {
     gap: 6px;
 }
 
-.basket-summary {
+.basket-items-list {
+    max-height: 240px;
+    overflow-y: auto;
+
     display: flex;
     flex-direction: column;
+    gap: 16px;
+
+    padding-right: 8px;
+}
+
+.basket-summary {
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.basket-items-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.basket-items-list::-webkit-scrollbar-thumb {
+    background-color: var(--background-tertiary);
+    border-radius: 4px;
 }
