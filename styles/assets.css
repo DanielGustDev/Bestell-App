@@ -29,6 +29,13 @@ button {
     background-image: url('../assets/icons/nes-controller-icon.svg');
 }
 
+.products-grid {
+    width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
+}
+
 .product-card {
     background-color: var(--background-primary);
 
