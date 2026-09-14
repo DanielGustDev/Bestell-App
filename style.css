@@ -20,7 +20,7 @@ header button {
     padding-left: max(calc(50% - 720px), 140px);
 }
 
-.logo-container {
+.logo-container a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,18 @@ header button {
     padding-top: 50px;
     padding-bottom: 40px;
 
+    text-decoration: none;
+
+    vertical-align: middle;
+}
+
+.logo-container a:hover {
+    text-decoration: none;
+}
+
+.logo-container a:visited {
+    color: var(--font-primary);
+    text-decoration: none;
 }
 
 .header-logo-icon {
@@ -89,6 +101,10 @@ header nav {
     flex-direction: column;
 
     transform: translateY(-50%);
+}
+
+.headline h1 {
+    line-height: 120px;
 }
 
 .name-and-rating {
@@ -261,4 +277,48 @@ header nav {
 .basket-items-list::-webkit-scrollbar-thumb {
     background-color: var(--background-tertiary);
     border-radius: 4px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    background-color: var(--background-secondary);
+
+    height: 128px;
+
+    padding-bottom: 33px;
+    margin-top: 120px;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 80px;
+
+    list-style-type: none;
+
+    font-family: 'Silkscreen';
+    color: var(--background-primary);
+}
+
+footer svg {
+    vertical-align: middle;
+
+    padding: 4px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:visited {
+    color: var(--accent);
 }
