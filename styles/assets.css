@@ -39,6 +39,8 @@ button {
 .product-card {
     background-color: var(--background-primary);
 
+    width: 716px;
+
     margin: 16px;
     padding: 10px;
 
