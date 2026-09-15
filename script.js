@@ -142,8 +142,15 @@ function deleteBasketItem(productId) {
 }
 
 function checkout() {
-  alert("Vielen Dank für deine Bestellung!");
+  if (basket.length === 0) return;
+
   basket = [];
   renderBasket();
   saveBasketToLocalStorage();
+
+  // Öffnet das Popover nativ
+  const modal = document.getElementById("checkout-modal");
+  if (modal) {
+    modal.showPopover();
+  }
 }

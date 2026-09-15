@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="120" height="100">
+  <g fill="none" stroke="#FCE8D5" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- 1. Speed-Lines links hinten -->
+    <path d="M 8 32 L 22 32" stroke-width="5" />
+    <path d="M 4 42 L 20 42" stroke-width="5" />
+    <path d="M 10 52 L 22 52" stroke-width="5" />
+    <path d="M 6 62 L 18 62" stroke-width="5" />
+
+    <!-- 2. Karosserie-Außenkontur (Kofferaufbau + Kabine) -->
+    <path d="M 28 66 L 28 28 Q 28 24 34 24 L 75 24 Q 86 24 92 34 L 102 48 Q 106 54 106 60 L 106 66 Z" stroke-width="6" />
+
+    <!-- 3. Trennlinie zwischen Laderaum und Fahrerkabine -->
+    <path d="M 72 24 L 72 66" stroke-width="5" />
+
+    <!-- 4. Fahrerkabinen-Fenster -->
+    <path d="M 77 30 L 77 48 L 98 48 Q 94 40 88 34 Z" stroke-width="5" />
+
+    <!-- 5. Türgriff -->
+    <path d="M 79 54 L 85 54" stroke-width="4" />
+
+    <!-- 6. Untere Chassis-Linie -->
+    <path d="M 24 66 L 108 66" stroke-width="6" />
+  </g>
+
+  <!-- 7. Freistehende Räder -->
+  <circle cx="46" cy="78" r="7.5" fill="#FCE8D5" />
+  <circle cx="88" cy="78" r="7.5" fill="#FCE8D5" />
+</svg>
