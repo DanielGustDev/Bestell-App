@@ -203,7 +203,7 @@ header nav {
     flex-direction: column;
 
     min-height: 400px;
-    height: 600px;
+    height: 680px;
     width: 400px;
 
     position: sticky;
@@ -242,7 +242,16 @@ header nav {
 
 .basket-item {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+
+    padding: 20px;
+
+    background-color: var(--background-primary);
+    color: var(--font-primary);
+
+    line-height: 1.7;
+
+    border-radius: 20px;
 }
 
 .basket-controls {
@@ -254,10 +263,24 @@ header nav {
     display: flex;
     align-items: center;
     gap: 6px;
+
+    font-weight: bold;
+}
+
+.amount-buttons button {
+    border: none;
+
+    font-weight: bold;
+}
+
+.action-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .basket-items-list {
-    max-height: 240px;
+    max-height: 350px;
     overflow-y: auto;
 
     display: flex;
@@ -269,7 +292,34 @@ header nav {
 
 .basket-summary {
     margin-top: auto;
-    padding-top: 16px;
+    padding: 36px 34px 59px 31px;
+
+    line-height: 2.2;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+
+    padding-right: 16px;
+}
+
+.total-line {
+    font-weight: bold;
+}
+
+.buy-now-button {
+    height: 64px;
+    width: 300px;
+
+    background-color: var(--background-primary);
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 60px;
 }
 
 .basket-items-list::-webkit-scrollbar {

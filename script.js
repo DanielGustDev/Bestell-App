@@ -1,17 +1,28 @@
 // @ts-nocheck
 
-// 1. HAUPTFUNKTION
+// Globaler Basket (wird beim Laden direkt aus dem localStorage geholt)
+let basket = loadBasketFromLocalStorage();
+
+// 1. LOCAL STORAGE HELPER
+function saveBasketToLocalStorage() {
+  localStorage.setItem("basket", JSON.stringify(basket));
+}
+
+function loadBasketFromLocalStorage() {
+  const savedBasket = localStorage.getItem("basket");
+  return savedBasket ? JSON.parse(savedBasket) : [];
+}
+
+// 2. HAUPTFUNKTION
 function init() {
   renderCategories();
   renderBasket();
 }
 
-// 2. KATEGORIEN RENDERN
+// 3. KATEGORIEN RENDERN
 function renderCategories() {
   const container = document.getElementById("category");
   const categories = ["games", "consoles", "periphery"];
-
-  // .map() verwandelt alle Kategorien in HTML-Strings und fügt sie performant auf einmal ein
   container.innerHTML = categories.map(createCategoryHtml).join("");
 }
 
@@ -34,52 +45,90 @@ function createProductListHtml(productList) {
   return productList.map(getSingleProductTemplate).join("");
 }
 
-// 3. WARENKORB RENDERN
-function renderBasket() {
-  const basketContainer = document.getElementById("basket");
-
-  if (basket.length === 0) {
-    basketContainer.innerHTML = getEmptyBasketTemplate();
-    return;
-  }
-
-  // .reduce() berechnet die Gesamtsumme elegant in einer Zeile
+// 4. BERECHNUNG & VOLLSTÄNDIGES RENDERN (nur bei Strukturänderungen)
+function calculateBasketTotals() {
   const subtotal = basket.reduce(
     (sum, item) => sum + item.price * item.amount,
     0,
   );
   const shipping = 9.9;
-
-  const itemsHtml = basket.map(getBasketItemTemplate).join("");
-  const summaryHtml = getBasketSummaryTemplate(
-    subtotal,
-    shipping,
-    subtotal + shipping,
-  );
-
-  basketContainer.innerHTML = getFilledBasketTemplate(itemsHtml, summaryHtml);
+  return { subtotal, shipping, total: subtotal + shipping };
 }
 
-// 4. WARENKORB LOGIK
+function generateBasketContentHtml() {
+  if (basket.length === 0) {
+    return getEmptyBasketTemplate();
+  }
+
+  const { subtotal, shipping, total } = calculateBasketTotals();
+  const itemsHtml = basket.map(getBasketItemTemplate).join("");
+  const summaryHtml = getBasketSummaryTemplate(subtotal, shipping, total);
+
+  return getFilledBasketTemplate(itemsHtml, summaryHtml);
+}
+
+function renderBasket() {
+  const basketContainer = document.getElementById("basket");
+  basketContainer.innerHTML = generateBasketContentHtml();
+}
+
+// 5. GEZIELTE DOM-UPDATES (Kein Re-Render / Kein Scroll-Springen)
+function updateSummaryUI() {
+  const { subtotal, total } = calculateBasketTotals();
+  const subtotalEl = document.querySelector(".subtotal-val");
+  const totalEl = document.querySelector(".total-val");
+
+  if (subtotalEl) subtotalEl.textContent = `${formatPrice(subtotal)} €`;
+  if (totalEl) totalEl.textContent = `${formatPrice(total)} €`;
+}
+
+function updateBasketItemUI(productId) {
+  const item = basket.find((i) => i.id === productId);
+  if (!item) return;
+
+  const itemElement = document.querySelector(
+    `[data-product-id="${productId}"]`,
+  );
+  if (!itemElement) return;
+
+  // Texte direkt anpassen
+  itemElement.querySelector(".item-title-amount").textContent = item.amount;
+  itemElement.querySelector(".item-amount-display").textContent = item.amount;
+  itemElement.querySelector(".basket-item-price").textContent =
+    `${formatPrice(item.price * item.amount)} €`;
+
+  // - Button vs. Mülleimer austauschen
+  const actionContainer = itemElement.querySelector(".action-button-container");
+  const deleteBtn = `<button onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`;
+  const decreaseBtn = `<button onclick="decreaseAmount('${item.id}')">-</button>`;
+
+  actionContainer.innerHTML = item.amount > 1 ? decreaseBtn : deleteBtn;
+
+  // Summe aktualisieren
+  updateSummaryUI();
+}
+
+// 6. WARENKORB LOGIK (mit Speichern)
 function addToBasket(productId) {
   const basketItem = basket.find((item) => item.id === productId);
 
   if (basketItem) {
     basketItem.amount++;
+    updateBasketItemUI(productId);
   } else {
     const product = products.find((p) => p.id === productId);
-    basket.push({ ...product, amount: 1 }); // Spread-Operator kopiert Eigenschaften kompakt
+    basket.push({ ...product, amount: 1 });
+    renderBasket();
   }
-
-  renderBasket();
+  saveBasketToLocalStorage();
 }
 
-// Hilfsfunktion zum Ändern der Menge (reduziert Code-Duplizierung von + / -)
 function updateAmount(productId, delta) {
   const item = basket.find((i) => i.id === productId);
   if (item && item.amount + delta > 0) {
     item.amount += delta;
-    renderBasket();
+    updateBasketItemUI(productId);
+    saveBasketToLocalStorage();
   }
 }
 
@@ -89,10 +138,12 @@ const decreaseAmount = (id) => updateAmount(id, -1);
 function deleteBasketItem(productId) {
   basket = basket.filter((item) => item.id !== productId);
   renderBasket();
+  saveBasketToLocalStorage();
 }
 
 function checkout() {
   alert("Vielen Dank für deine Bestellung!");
   basket = [];
   renderBasket();
+  saveBasketToLocalStorage();
 }
