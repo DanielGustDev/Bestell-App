@@ -57,7 +57,6 @@ header button {
 header nav {
     padding-top: 50px;
     padding-bottom: 40px;
-
 }
 
 .hero-section {
@@ -173,6 +172,7 @@ header nav {
 
 .nav-link:hover {
     color: var(--background-tertiary);
+    text-decoration: underline;
 }
 
 .category-section {
