@@ -22,7 +22,13 @@ function init() {
 // 3. KATEGORIEN RENDERN
 function renderCategories() {
   const container = document.getElementById("category");
+  const navContainer = document.querySelector(".category-navigation");
   const categories = ["games", "consoles", "periphery"];
+  if (navContainer) {
+    navContainer.innerHTML = categories
+      .map(getCategoryNavLinkTemplate)
+      .join("");
+  }
   container.innerHTML = categories.map(createCategoryHtml).join("");
 }
 

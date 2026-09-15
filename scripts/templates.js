@@ -32,10 +32,15 @@ function getSingleProductTemplate(product) {
     `;
 }
 
+function getCategoryNavLinkTemplate(category) {
+  const title = category.toUpperCase();
+  return `<a href="#category-${category}" class="nav-link">${title}</a>`;
+}
+
 function getCategoryHeaderTemplate(categoryTitle) {
   const categoryClass = categoryTitle.toLowerCase();
   return `
-    <div class="category-header-band ${categoryClass}">
+    <div id="category-${categoryClass}" class="category-header-band ${categoryClass}">
       <div class="category-header-content">
         <div class="category-icon"></div>
         <h2>${categoryTitle}</h2>

@@ -1,0 +1,140 @@
+.basket-rail {
+    display: flex;
+    justify-content: flex-end;
+
+    flex: 0 0 400px;
+    width: 400px;
+}
+
+.basket-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 400px;
+    height: 680px;
+    width: 400px;
+
+    position: sticky;
+    top: 10px;
+
+    background-color: var(--background-secondary);
+
+    color: var(--background-primary);
+
+    border-radius: 24px 0 0 24px;
+    padding: 24px;
+
+    z-index: 4;
+}
+
+.basket-card h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.empty-basket-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    gap: 32px;
+}
+
+.empty-basket-content p {
+    line-height: 1.4;
+
+    margin: 0;
+}
+
+.basket-item {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    background-color: var(--background-primary);
+    color: var(--font-primary);
+
+    line-height: 1.7;
+
+    border-radius: 20px;
+}
+
+.basket-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-weight: bold;
+}
+
+.amount-buttons button {
+    border: none;
+
+    font-weight: bold;
+}
+
+.action-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket-items-list {
+    max-height: 350px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding-right: 8px;
+}
+
+.basket-summary {
+    margin-top: auto;
+    padding: 36px 34px 59px 31px;
+
+    line-height: 2.2;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+
+    padding-right: 16px;
+}
+
+.total-line {
+    font-weight: bold;
+}
+
+.buy-now-button {
+    height: 64px;
+    width: 300px;
+
+    background-color: var(--background-primary);
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 60px;
+}
+
+.basket-items-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.basket-items-list::-webkit-scrollbar-thumb {
+    background-color: var(--background-tertiary);
+    border-radius: 4px;
+}
