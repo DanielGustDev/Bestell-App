@@ -143,17 +143,21 @@ header nav {
     width: 100%;
 }
 
+.nav-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-secondary);
+
+    padding-left: 170px;
+    margin-bottom: 16px;
+}
+
 .category-navigation {
     display: flex;
     align-items: center;
     gap: 8px;
 
     height: 63px;
-
-    padding-left: 160px;
-    margin-bottom: 16px;
-
-    background-color: var(--background-secondary);
 }
 
 .nav-link {
