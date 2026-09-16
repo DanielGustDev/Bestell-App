@@ -139,16 +139,21 @@ header nav {
 
 .content {
     display: flex;
+    justify-content: space-between;
 
     width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
 }
 
 .nav-bar {
     display: flex;
     align-items: center;
+
     background-color: var(--background-secondary);
 
-    padding-left: 170px;
+    padding-left: clamp(16px, 8vw, 170px);
     margin-bottom: 16px;
 }
 
@@ -188,6 +193,7 @@ header nav {
     position: relative;
 
     height: 60px;
+    width: 100%;
 
     background-color: var(--background-tertiary);
 
@@ -202,9 +208,6 @@ header nav {
     bottom: 0;
     left: 100%;
 
-    width: 400px;
-    height: 60px;
-
     background-color: inherit;
 
     z-index: -1;
@@ -218,7 +221,7 @@ header nav {
     max-width: 1440px;
     height: 60px;
 
-    padding-left: 160px;
+    padding-left: clamp(16px, 8vw, 170px);
 }
 
 .category-header-content h2 {

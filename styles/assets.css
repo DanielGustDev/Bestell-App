@@ -39,9 +39,9 @@ button {
 .product-card {
     background-color: var(--background-primary);
 
-    width: 716px;
+    width: clamp(300px, 100%, 716px);
 
-    margin: 16px 170px;
+    margin: 16px auto;
     padding: 10px;
 
     display: flex;
@@ -64,7 +64,8 @@ button {
 }
 
 .product-title {
-    width: 350px;
+    flex: 1;
+    min-width: 0;
 }
 
 .price-plus-button {

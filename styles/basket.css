@@ -2,8 +2,8 @@
     display: flex;
     justify-content: flex-end;
 
-    flex: 0 0 400px;
-    width: 400px;
+    flex: 0 1 clamp(280px, 30vw, 400px);
+    width: clamp(280px, 30vw, 400px);
 }
 
 .basket-card {
@@ -12,7 +12,7 @@
 
     min-height: 400px;
     height: 680px;
-    width: 400px;
+    width: 100%;
 
     position: sticky;
     top: 10px;
@@ -118,7 +118,8 @@
 
 .buy-now-button {
     height: 64px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 
     background-color: var(--background-primary);
 
