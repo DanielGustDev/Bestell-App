@@ -1,9 +1,7 @@
 // @ts-nocheck
 
-// Globaler Basket (wird beim Laden direkt aus dem localStorage geholt)
 let basket = loadBasketFromLocalStorage();
 
-// 1. LOCAL STORAGE HELPER
 function saveBasketToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(basket));
 }
@@ -13,30 +11,41 @@ function loadBasketFromLocalStorage() {
   return savedBasket ? JSON.parse(savedBasket) : [];
 }
 
-// 2. HAUPTFUNKTION
 function init() {
   renderCategories();
   renderBasket();
+  setupPopoverListener();
 }
 
-// 3. KATEGORIEN RENDERN
+function setupPopoverListener() {
+  const mobilePopover = document.getElementById("mobile-basket-popover");
+  if (mobilePopover) {
+    mobilePopover.addEventListener("beforetoggle", (event) => {
+      if (event.newState === "open") {
+        renderBasket();
+      }
+    });
+  }
+}
+
 function renderCategories() {
   const container = document.getElementById("category");
-  const navContainer = document.querySelector(".category-navigation");
+  const navigationContainer = document.querySelector(".category-navigation");
   const categories = ["games", "consoles", "periphery"];
-  if (navContainer) {
-    navContainer.innerHTML = categories
+  if (navigationContainer) {
+    navigationContainer.innerHTML = categories
       .map(getCategoryNavLinkTemplate)
       .join("");
   }
-  container.innerHTML = categories.map(createCategoryHtml).join("");
+  if (container) {
+    container.innerHTML = categories.map(createCategoryHtml).join("");
+  }
 }
 
 function createCategoryHtml(category) {
   const filteredProducts = filterProductsByCategory(category);
   const productsHtml = createProductListHtml(filteredProducts);
   const title = category.toUpperCase();
-
   return (
     getCategoryHeaderTemplate(title) +
     getCategorySectionTemplate(title, productsHtml)
@@ -51,7 +60,6 @@ function createProductListHtml(productList) {
   return productList.map(getSingleProductTemplate).join("");
 }
 
-// 4. BERECHNUNG & VOLLSTÄNDIGES RENDERN (nur bei Strukturänderungen)
 function calculateBasketTotals() {
   const subtotal = basket.reduce(
     (sum, item) => sum + item.price * item.amount,
@@ -62,84 +70,97 @@ function calculateBasketTotals() {
 }
 
 function generateBasketContentHtml() {
-  if (basket.length === 0) {
-    return getEmptyBasketTemplate();
-  }
-
+  if (basket.length === 0) return getEmptyBasketTemplate();
   const { subtotal, shipping, total } = calculateBasketTotals();
   const itemsHtml = basket.map(getBasketItemTemplate).join("");
   const summaryHtml = getBasketSummaryTemplate(subtotal, shipping, total);
-
   return getFilledBasketTemplate(itemsHtml, summaryHtml);
 }
 
-function renderBasket() {
-  const basketContainer = document.getElementById("basket");
-  basketContainer.innerHTML = generateBasketContentHtml();
+function updateContainerContent(elementId, htmlContent) {
+  const element = document.getElementById(elementId);
+  if (element) element.innerHTML = htmlContent;
 }
 
-// 5. GEZIELTE DOM-UPDATES (Kein Re-Render / Kein Scroll-Springen)
+function renderBasket() {
+  const contentHtml = generateBasketContentHtml();
+  updateContainerContent("basket", contentHtml);
+  updateContainerContent("mobile-basket-container", contentHtml);
+}
+
+function updateElementText(selectorText, textContent) {
+  const elements = document.querySelectorAll(selectorText);
+  elements.forEach((element) => {
+    element.textContent = textContent;
+  });
+}
+
 function updateSummaryUI() {
   const { subtotal, total } = calculateBasketTotals();
-  const subtotalEl = document.querySelector(".subtotal-val");
-  const totalEl = document.querySelector(".total-val");
-
-  if (subtotalEl) subtotalEl.textContent = `${formatPrice(subtotal)} €`;
-  if (totalEl) totalEl.textContent = `${formatPrice(total)} €`;
+  updateElementText(".subtotal-val", `${formatPrice(subtotal)} €`);
+  updateElementText(".total-val", `${formatPrice(total)} €`);
 }
 
-function updateBasketItemUI(productId) {
-  const item = basket.find((i) => i.id === productId);
-  if (!item) return;
+function getActionButtonTemplate(amount, productId) {
+  const deleteButton = `<button onclick="deleteBasketItem('${productId}')">${getTrashIconSvg()}</button>`;
+  const decreaseButton = `<button onclick="decreaseAmount('${productId}')">-</button>`;
+  return amount > 1 ? decreaseButton : deleteButton;
+}
 
-  const itemElement = document.querySelector(
-    `[data-product-id="${productId}"]`,
-  );
-  if (!itemElement) return;
-
-  // Texte direkt anpassen
+function updateItemDOMValues(itemElement, item) {
   itemElement.querySelector(".item-title-amount").textContent = item.amount;
   itemElement.querySelector(".item-amount-display").textContent = item.amount;
   itemElement.querySelector(".basket-item-price").textContent =
     `${formatPrice(item.price * item.amount)} €`;
+  const actionButtonContainer = itemElement.querySelector(
+    ".action-button-container",
+  );
+  if (actionButtonContainer) {
+    actionButtonContainer.innerHTML = getActionButtonTemplate(
+      item.amount,
+      item.id,
+    );
+  }
+}
 
-  // - Button vs. Mülleimer austauschen
-  const actionContainer = itemElement.querySelector(".action-button-container");
-  const deleteBtn = `<button onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`;
-  const decreaseBtn = `<button onclick="decreaseAmount('${item.id}')">-</button>`;
+function updateSingleItemDOM(productId) {
+  const item = basket.find((item) => item.id === productId);
+  if (!item) return;
+  const itemElements = document.querySelectorAll(
+    `[data-product-id="${productId}"]`,
+  );
+  itemElements.forEach((element) => updateItemDOMValues(element, item));
+}
 
-  actionContainer.innerHTML = item.amount > 1 ? decreaseBtn : deleteBtn;
-
-  // Summe aktualisieren
+function updateBasketItemUI(productId) {
+  updateSingleItemDOM(productId);
   updateSummaryUI();
 }
 
-// 6. WARENKORB LOGIK (mit Speichern)
 function addToBasket(productId) {
   const basketItem = basket.find((item) => item.id === productId);
-
   if (basketItem) {
     basketItem.amount++;
     updateBasketItemUI(productId);
   } else {
-    const product = products.find((p) => p.id === productId);
+    const product = products.find((product) => product.id === productId);
     basket.push({ ...product, amount: 1 });
     renderBasket();
   }
   saveBasketToLocalStorage();
 }
 
-function updateAmount(productId, delta) {
-  const item = basket.find((i) => i.id === productId);
-  if (item && item.amount + delta > 0) {
-    item.amount += delta;
+function updateAmount(productId, deltaValue) {
+  const item = basket.find((item) => item.id === productId);
+  if (item && item.amount + deltaValue > 0) {
+    item.amount += deltaValue;
     updateBasketItemUI(productId);
     saveBasketToLocalStorage();
   }
 }
 
-const increaseAmount = (id) => updateAmount(id, 1);
-const decreaseAmount = (id) => updateAmount(id, -1);
+const increaseAmount = (productId) => updateAmount(productId, 1);
+const decreaseAmount = (productId) => updateAmount(productId, -1);
 
 function deleteBasketItem(productId) {
   basket = basket.filter((item) => item.id !== productId);
@@ -147,16 +168,21 @@ function deleteBasketItem(productId) {
   saveBasketToLocalStorage();
 }
 
+function hidePopoverIfOpen(modalId) {
+  const modalElement = document.getElementById(modalId);
+  if (modalElement && modalElement.hidePopover) modalElement.hidePopover();
+}
+
 function checkout() {
   if (basket.length === 0) return;
-
   basket = [];
   renderBasket();
   saveBasketToLocalStorage();
+  hidePopoverIfOpen("mobile-basket-popover");
+  const checkoutModal = document.getElementById("checkout-modal");
+  if (checkoutModal) checkoutModal.showPopover();
+}
 
-  // Öffnet das Popover nativ
-  const modal = document.getElementById("checkout-modal");
-  if (modal) {
-    modal.showPopover();
-  }
+function formatPrice(amount) {
+  return amount.toFixed(2).replace(".", ",");
 }

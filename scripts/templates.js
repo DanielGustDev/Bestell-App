@@ -74,17 +74,15 @@ function getEmptyBasketTemplate() {
 }
 
 function getBasketControlsTemplate(item) {
-  const deleteButton = `<button  type="button" aria-label="Remove ${item.name} from basket" onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`;
-  const decreaseButton = `<button  type="button" aria-label="Decrease quantity of ${item.name}" onclick="decreaseAmount('${item.id}')">-</button>`;
+  const deleteButton = `<button type="button" aria-label="Remove ${item.name} from basket" onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`;
+  const decreaseButton = `<button type="button" aria-label="Decrease quantity of ${item.name}" onclick="decreaseAmount('${item.id}')">-</button>`;
   const actionButton = item.amount > 1 ? decreaseButton : deleteButton;
-
   return `
-        <div class="amount-buttons">
-            <div class="action-button-container">${actionButton}</div>
-            <p class="item-amount-display">${item.amount}</p>
-            <button type="button" aria-label="Increase quantity of ${item.name}" onclick="increaseAmount('${item.id}')">+</button>
-        </div>
-    `;
+    <div class="amount-buttons">
+      <div class="action-button-container">${actionButton}</div>
+      <p class="item-amount-display">${item.amount}</p>
+      <button type="button" aria-label="Increase quantity of ${item.name}" onclick="increaseAmount('${item.id}')">+</button>
+    </div>`;
 }
 
 function getBasketItemTemplate(item) {
