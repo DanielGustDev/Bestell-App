@@ -37,15 +37,15 @@ button {
 }
 
 .product-card {
+    display: flex;
+    gap: 16px;
+
     background-color: var(--background-primary);
 
     width: clamp(300px, 100%, 716px);
 
     margin: 16px auto;
     padding: 10px;
-
-    display: flex;
-    gap: 15px;
 
     border-radius: 12px;
 }

@@ -204,7 +204,6 @@ header nav {
 
 .category-section {
     flex: 1;
-    min-width: 0;
 }
 
 .category-header-band {

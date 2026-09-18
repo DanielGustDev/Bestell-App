@@ -1,0 +1,133 @@
+.mobile-nav {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+
+    body {
+        padding-bottom: 70px;
+    }
+
+    .basket-rail,
+    .basket-card,
+    .nav-bar,
+    .category-header-band::before,
+    .category-header-band::after,
+    .burger-menu {
+        display: none;
+    }
+
+    .banner {
+        margin: 24px 16px;
+
+        border-radius: 16px;
+    }
+
+    div.headline {
+        transform: none;
+    }
+
+    div.headline h1 {
+        line-height: inherit;
+    }
+
+    .name-and-rating {
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+
+    div.category-header-band {
+        margin-top: 48px;
+        margin-bottom: 48px;
+    }
+
+    div.category-header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+
+        padding-left: 0px;
+    }
+
+    .products-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        width: clamp(300px, 100%, 575px);
+
+        margin: 16px;
+    }
+
+    .product-card img {
+        width: 300px;
+        height: 90px;
+    }
+
+    .price-plus-button {
+        display: flex;
+        flex-direction: row;
+        gap: 126px;
+    }
+
+    .mobile-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        height: 60px;
+
+        background-color: var(--background-secondary);
+
+        z-index: 100;
+    }
+
+    .nav-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-decoration: none;
+
+        padding: 10px;
+    }
+
+    .nav-item:active {
+        color: var(--background-tertiary);
+    }
+
+    .nav-icon {
+        width: 24px;
+        height: 24px
+    }
+
+    .nav-icon-menu {
+        width: 30px;
+        height: 30px
+    }
+
+    footer nav.last-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+}
