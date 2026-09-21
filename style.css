@@ -266,7 +266,7 @@ header nav {
 
     color: var(--font-primary);
 
-    width: 400px;
+    width: clamp(260px 15vw 400px);
 
     margin: auto;
     padding: 16px;
