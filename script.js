@@ -1,12 +1,24 @@
 /* global products */
 
 /**
+ * @typedef {Object} Product
+ * @property {string} id
+ * @property {string} name
+ * @property {string} description
+ * @property {number} price
+ * @property {string} image
+ * @property {string} [category]
+ */
+
+/**
  * @typedef {Object} BasketItem
  * @property {string} id
  * @property {string} name
  * @property {number} price
  * @property {number} amount
- * @property {string} category
+ * @property {string} [category]
+ * @property {string} [description]
+ * @property {string} [image]
  */
 
 /**
@@ -86,7 +98,7 @@ function renderCategories() {
  * @returns {string} Combined HTML string for the category header and section.
  */
 function createCategoryHtml(category) {
-  const filteredProducts = filterProductsByCategory(category);
+  const filteredProducts = filterProductsByCategory(products, category);
   const productsHtml = createProductListHtml(filteredProducts);
   const title = category ? category.toUpperCase() : "";
   return (
@@ -96,18 +108,21 @@ function createCategoryHtml(category) {
 }
 
 /**
- * Filters the global product list by category.
+ * Filters a product list by category.
+ * @param {Product[]} productList - The array of product objects.
  * @param {string} category - The category string to match.
- * @returns {Array<Object>} List of matching product objects.
+ * @returns {Product[]} List of matching product objects.
  */
-function filterProductsByCategory(category) {
-  if (typeof products === "undefined" || !Array.isArray(products)) return [];
-  return products.filter((product) => product && product.category === category);
+function filterProductsByCategory(productList, category) {
+  if (!Array.isArray(productList)) return [];
+  return productList.filter(
+    (product) => product && product.category === category,
+  );
 }
 
 /**
  * Generates an HTML string for an array of products.
- * @param {Array<Object>} productList - List of product items.
+ * @param {Product[]} productList - List of product items.
  * @returns {string} Concatenated HTML string of single product templates.
  */
 function createProductListHtml(productList) {

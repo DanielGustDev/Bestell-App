@@ -62,5 +62,3 @@ Bestell-App/
 
 2. **Open the application:**
    - Open `index.html` directly in any web browser, or launch it using the VS Code **Live Server** extension for local development.
-
----
