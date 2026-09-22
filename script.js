@@ -1,9 +1,8 @@
-// @ts-nocheck
-
 let basket = loadBasketFromLocalStorage();
 
 function saveBasketToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(basket));
+  updateBasketBadge();
 }
 
 function loadBasketFromLocalStorage() {
@@ -15,6 +14,7 @@ function init() {
   renderCategories();
   renderBasket();
   setupPopoverListener();
+  updateBasketBadge();
 }
 
 function setupPopoverListener() {
@@ -180,9 +180,28 @@ function checkout() {
   saveBasketToLocalStorage();
   hidePopoverIfOpen("mobile-basket-popover");
   const checkoutModal = document.getElementById("checkout-modal");
-  if (checkoutModal) checkoutModal.showPopover();
+  if (checkoutModal) {
+    checkoutModal.showPopover();
+    setTimeout(() => {
+      checkoutModal.hidePopover();
+    }, 5000);
+  }
 }
 
 function formatPrice(amount) {
   return amount.toFixed(2).replace(".", ",");
+}
+
+function updateBasketBadge() {
+  const badge = document.getElementById("mobile-basket-badge");
+  if (!badge) return;
+
+  const totalCount = basket.reduce((sum, item) => sum + item.amount, 0);
+
+  if (totalCount > 0) {
+    badge.textContent = totalCount;
+    badge.classList.remove("hidden");
+  } else {
+    badge.classList.add("hidden");
+  }
 }

@@ -18,7 +18,7 @@ function formatPrice(amount) {
 
 function getSingleProductTemplate(product) {
   return `
-        <article class="product-card">
+        <section class="product-card">
             <img src="${product.image}" alt="${product.name}">
             <div class="product-title">
                 <h3>${product.name}</h3>
@@ -30,7 +30,7 @@ function getSingleProductTemplate(product) {
                 aria-label="Add ${product.name} to basket"
                 onclick="addToBasket('${product.id}')")">Add to basket</button>
             </div>
-        </article>
+        </section>
     `;
 }
 
