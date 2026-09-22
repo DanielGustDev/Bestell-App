@@ -4,13 +4,7 @@ A responsive, single-page web application for browsing retro video games and man
 
 ---
 
-## 🚀 Live Demo
-
-[View Live Project](https://danielgust.github.io/Bestell-App/) _(Update link accordingly)_
-
----
-
-## ✨ Features
+## Features
 
 - **Dynamic Product Rendering:** Product grid dynamically generated from custom JavaScript dataset objects (`database.js`).
 - **Interactive Shopping Basket:** Real-time quantity adjustments, automatic subtotal/delivery calculations, and item removal.
@@ -22,7 +16,7 @@ A responsive, single-page web application for browsing retro video games and man
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **HTML5:** Semantic markup structure with native HTML dialog/popover elements.
 - **CSS3:** Custom properties (CSS variables), Flexbox, CSS Grid layout, custom typography, and mobile-first media queries.
@@ -31,7 +25,7 @@ A responsive, single-page web application for browsing retro video games and man
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Bestell-App/
@@ -55,3 +49,18 @@ Bestell-App/
 ├── script.js          # Core app controller, DOM manipulation, LocalStorage logic
 └── style.css          # Main stylesheet entry point (@import hub)
 ```
+
+---
+
+## ⚡ Getting Started
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone [https://github.com/danielgust/Bestell-App.git](https://github.com/danielgust/Bestell-App.git)
+   ```
+
+2. **Open the application:**
+   - Open `index.html` directly in any web browser, or launch it using the VS Code **Live Server** extension for local development.
+
+---
