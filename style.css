@@ -261,42 +261,6 @@ header nav {
     color: var(--font-primary);
 }
 
-.modal-card {
-    background-color: var(--background-secondary);
-
-    color: var(--font-primary);
-
-    width: clamp(300px, 15vh, 400px);
-
-    margin: auto;
-    padding: 16px;
-
-    border-radius: 30px;
-    border: none;
-
-    text-align: center;
-}
-
-.modal-card:popover-open {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modal-card button {
-    color: var(--font-primary);
-
-    align-self: flex-end;
-
-    margin-bottom: 16px;
-}
-
-.modal-card::backdrop {
-    background-color: transparent;
-
-    backdrop-filter: blur(2px);
-}
-
 footer {
     display: flex;
     justify-content: center;
