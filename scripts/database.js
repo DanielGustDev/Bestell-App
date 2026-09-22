@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 const products = [
   {
     "id": "g1",

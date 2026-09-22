@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/standards.css">
     <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
     <link rel="stylesheet" href="style.css">
 
     <script src="./scripts/database.js"></script>
@@ -85,6 +87,81 @@
             Chrome / Edge / Firefox / Safari: Go to Settings > Privacy & Security > Clear Browsing Data / Site Data.<br>
             Note: Clearing your local browser storage will reset your current shopping basket.<br>
         </p>
+        <nav class="mobile-nav">
+            <a href="index.html" class="nav-item" aria-label="To Top of the Page">
+                <svg class="nav-icon" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.75 21.2571H6.875V14.4C6.875 14.0114 7.00677 13.6857 7.27031 13.4229C7.53385 13.16 7.86042 13.0286 8.25 13.0286H13.75C14.1396 13.0286 14.4661 13.16 14.7297 13.4229C14.9932 13.6857 15.125 14.0114 15.125 14.4V21.2571H19.25V8.91429L11 2.74286L2.75 8.91429V21.2571ZM0 21.2571V8.91429C0 8.48 0.0973958 8.06857 0.292188 7.68C0.486979 7.29143 0.75625 6.97143 1.1 6.72L9.35 0.548571C9.83125 0.182857 10.3813 0 11 0C11.6187 0 12.1687 0.182857 12.65 0.548571L20.9 6.72C21.2437 6.97143 21.513 7.29143 21.7078 7.68C21.9026 8.06857 22 8.48 22 8.91429V21.2571C22 22.0114 21.7307 22.6571 21.1922 23.1943C20.6536 23.7314 20.0063 24 19.25 24H13.75C13.3604 24 13.0339 23.8686 12.7703 23.6057C12.5068 23.3429 12.375 23.0171 12.375 22.6286V15.7714H9.625V22.6286C9.625 23.0171 9.49323 23.3429 9.22969 23.6057C8.96615 23.8686 8.63958 24 8.25 24H2.75C1.99375 24 1.34635 23.7314 0.807813 23.1943C0.269271 22.6571 0 22.0114 0 21.2571Z"
+                        fill="currentColor" />
+                </svg>
+            </a>
+            <a href="#profile" class="nav-item" aria-label="Open Profile">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 12C10.35 12 8.9375 11.4125 7.7625 10.2375C6.5875 9.0625 6 7.65 6 6C6 4.35 6.5875 2.9375 7.7625 1.7625C8.9375 0.5875 10.35 0 12 0C13.65 0 15.0625 0.5875 16.2375 1.7625C17.4125 2.9375 18 4.35 18 6C18 7.65 17.4125 9.0625 16.2375 10.2375C15.0625 11.4125 13.65 12 12 12ZM0 21V19.8C0 18.95 0.21875 18.1688 0.65625 17.4562C1.09375 16.7437 1.675 16.2 2.4 15.825C3.95 15.05 5.525 14.4688 7.125 14.0813C8.725 13.6937 10.35 13.5 12 13.5C13.65 13.5 15.275 13.6937 16.875 14.0813C18.475 14.4688 20.05 15.05 21.6 15.825C22.325 16.2 22.9062 16.7437 23.3438 17.4562C23.7812 18.1688 24 18.95 24 19.8V21C24 21.825 23.7063 22.5313 23.1188 23.1188C22.5313 23.7063 21.825 24 21 24H3C2.175 24 1.46875 23.7063 0.88125 23.1188C0.29375 22.5313 0 21.825 0 21ZM3 21H21V19.8C21 19.525 20.9313 19.275 20.7938 19.05C20.6563 18.825 20.475 18.65 20.25 18.525C18.9 17.85 17.5375 17.3438 16.1625 17.0063C14.7875 16.6688 13.4 16.5 12 16.5C10.6 16.5 9.2125 16.6688 7.8375 17.0063C6.4625 17.3438 5.1 17.85 3.75 18.525C3.525 18.65 3.34375 18.825 3.20625 19.05C3.06875 19.275 3 19.525 3 19.8V21ZM12 9C12.825 9 13.5313 8.70625 14.1188 8.11875C14.7063 7.53125 15 6.825 15 6C15 5.175 14.7063 4.46875 14.1188 3.88125C13.5313 3.29375 12.825 3 12 3C11.175 3 10.4688 3.29375 9.88125 3.88125C9.29375 4.46875 9 5.175 9 6C9 6.825 9.29375 7.53125 9.88125 8.11875C10.4688 8.70625 11.175 9 12 9Z"
+                        fill="currentColor" />
+                </svg>
+            </a>
+            <a href="#category-games" class="nav-item" aria-label="To Top-Category">
+                <svg class="nav-icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <!-- GameBoy (schaut oben aus der Papiertüte heraus) -->
+                    <g id="gameboy">
+                        <!-- GameBoy-Gehäuse -->
+                        <rect x="26" y="14" width="48" height="50" rx="5" fill="currentColor" stroke="currentColor"
+                            stroke-width="2.5" />
+
+                        <!-- Display-Rahmen -->
+                        <rect x="32" y="20" width="36" height="26" rx="2" fill="currentColor" stroke="currentColor"
+                            stroke-width="1.5" />
+
+                        <!-- Grüner GameBoy-Bildschirm -->
+                        <rect x="38" y="24" width="24" height="18" rx="1" fill="#8BAC0F" />
+
+                        <!-- Power LED -->
+                        <circle cx="35" cy="33" r="1.2" fill="currentColor" />
+
+                        <!-- Steuerkreuz (D-Pad) -->
+                        <path d="M 40 50 h -3 v 3 h -3 v 3 h 3 v 3 h 3 v -3 h 3 v -3 h -3 z" fill="currentColor" />
+
+                        <!-- A/B Buttons -->
+                        <circle cx="65" cy="53" r="3" fill="currentColor" stroke="currentColor" stroke-width="1" />
+                        <circle cx="57" cy="57" r="3" fill="currentColor" stroke="currentColor" stroke-width="1" />
+                    </g>
+
+                    <!-- Papiertüte (im Stil des Logos, verdeckt den unteren Teil des GameBoys) -->
+                    <g id="shopping-bag">
+                        <!-- Hauptkörper der Papiertüte -->
+                        <path d="M 22 46 L 27 92 H 73 L 78 46 Z" fill="currentColor" stroke="currentColor"
+                            stroke-width="3" stroke-linejoin="round" />
+
+                        <!-- Papier-Umschlag/Falte oben -->
+                        <path d="M 22 46 L 25 54 H 75 L 78 46 Z" fill="currentColor" stroke="currentColor"
+                            stroke-width="3" stroke-linejoin="round" />
+
+                        <!-- Charakteristischer Papierbeutel-Griff (ausgestanzte Trageschlaufe) -->
+                        <rect x="40" y="58" width="20" height="8" rx="4" fill="#666666" />
+
+                        <!-- Roter NES-Akzentstreifen auf der Tüte -->
+                        <rect x="27" y="74" width="46" height="6" fill="#666666" />
+                    </g>
+                </svg>
+            </a>
+            <button type="button" class="nav-item" id="mobile-basket" popovertarget="mobile-basket-popover"
+                aria-label="Open Basket">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.20666 24C6.54605 24 5.98053 23.765 5.51009 23.295C5.03966 22.825 4.80444 22.26 4.80444 21.6C4.80444 20.94 5.03966 20.375 5.51009 19.905C5.98053 19.435 6.54605 19.2 7.20666 19.2C7.86727 19.2 8.43279 19.435 8.90323 19.905C9.37366 20.375 9.60888 20.94 9.60888 21.6C9.60888 22.26 9.37366 22.825 8.90323 23.295C8.43279 23.765 7.86727 24 7.20666 24ZM19.2178 24C18.5571 24 17.9916 23.765 17.5212 23.295C17.0508 22.825 16.8155 22.26 16.8155 21.6C16.8155 20.94 17.0508 20.375 17.5212 19.905C17.9916 19.435 18.5571 19.2 19.2178 19.2C19.8784 19.2 20.4439 19.435 20.9143 19.905C21.3848 20.375 21.62 20.94 21.62 21.6C21.62 22.26 21.3848 22.825 20.9143 23.295C20.4439 23.765 19.8784 24 19.2178 24ZM6.18572 4.8L9.06838 10.8H17.4761L20.7792 4.8H6.18572ZM5.04466 2.4H22.761C23.2215 2.4 23.5718 2.605 23.812 3.015C24.0522 3.425 24.0622 3.84 23.842 4.26L19.5781 11.94C19.3579 12.34 19.0626 12.65 18.6923 12.87C18.3219 13.09 17.9166 13.2 17.4761 13.2H8.52788L7.20666 15.6H20.4189C20.7592 15.6 21.0444 15.715 21.2747 15.945C21.5049 16.175 21.62 16.46 21.62 16.8C21.62 17.14 21.5049 17.425 21.2747 17.655C21.0444 17.885 20.7592 18 20.4189 18H7.20666C6.30583 18 5.6252 17.605 5.16477 16.815C4.70435 16.025 4.68433 15.24 5.10472 14.46L6.72621 11.52L2.40222 2.4H1.20111C0.860795 2.4 0.575532 2.285 0.345319 2.055C0.115106 1.825 0 1.54 0 1.2C0 0.86 0.115106 0.575 0.345319 0.345C0.575532 0.115 0.860795 0 1.20111 0H3.15291C3.37312 0 3.58331 0.06 3.7835 0.18C3.98368 0.3 4.13382 0.47 4.23391 0.69L5.04466 2.4Z"
+                        fill="currentColor" />
+                </svg>
+                <span id="mobile-basket-badge" class="basket-badge hidden">0</span>
+            </button>
+        </nav>
+        <div id="mobile-basket-popover" popover="auto" class="mobile-basket-modal basket-card">
+            <div class="popover-header">
+                <h2>Your Basket</h2>
+            </div>
+            <div id="mobile-basket-container" class="basket-container"></div>
+        </div>
     </main>
     <footer>
         <nav class="last-links">
