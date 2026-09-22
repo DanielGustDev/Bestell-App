@@ -16,6 +16,8 @@ header button {
     width: min(100%, 1440px);
     height: 100%;
 
+
+
     padding-left: clamp(20px, 9.7vw, 140px);
     padding-right: clamp(20px, 9.7vw, 140px);
     margin: 0 auto;
@@ -28,6 +30,8 @@ header button {
 
     padding-top: 50px;
     padding-bottom: 40px;
+
+    color: var(--font-primary);
 
     text-decoration: none;
 
