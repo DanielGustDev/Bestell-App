@@ -193,6 +193,7 @@ function updateSummaryUI() {
   const { subtotal, total } = calculateBasketTotals();
   updateElementText(".subtotal-val", `${formatPrice(subtotal)} €`);
   updateElementText(".total-val", `${formatPrice(total)} €`);
+  updateElementText(".buy-now-button", `Buy Now (${formatPrice(total)} €)`);
 }
 
 /**
@@ -202,8 +203,8 @@ function updateSummaryUI() {
  * @returns {string} HTML button string.
  */
 function getActionButtonTemplate(amount, productId) {
-  const deleteButton = `<button onclick="deleteBasketItem('${productId}')">${getTrashIconSvg()}</button>`;
-  const decreaseButton = `<button onclick="decreaseAmount('${productId}')">-</button>`;
+  const deleteButton = `<button type="button" aria-label="Remove item" onclick="deleteBasketItem('${productId}')">${getTrashIconSvg()}</button>`;
+  const decreaseButton = `<button type="button" aria-label="Decrease quantity" onclick="decreaseAmount('${productId}')">-</button>`;
   return amount > 1 ? decreaseButton : deleteButton;
 }
 
@@ -227,7 +228,7 @@ function updateItemAmountDOM(itemElement, amount) {
  * @param {number} amount - Current product item amount.
  */
 function updateItemPriceDOM(itemElement, price, amount) {
-  const priceEl = itemElement.querySelector(".basket-item-price");
+  const priceEl = itemElement.querySelector(".basket-item-price p");
   if (priceEl) {
     priceEl.textContent = `${formatPrice((price || 0) * (amount || 0))} €`;
   }
@@ -302,14 +303,14 @@ function addToBasket(productId) {
 }
 
 /**
- * Modifies the quantity of a product in the basket by a given delta value.
+ * Modifies the quantity of a product in the basket by a given changed value.
  * @param {string} productId - Product identifier.
- * @param {number} deltaValue - Amount to add or subtract (e.g. +1 or -1).
+ * @param {number} change - Amount to add or subtract (e.g. +1 or -1).
  */
-function updateAmount(productId, deltaValue) {
+function updateAmount(productId, change) {
   const item = basket.find((item) => item.id === productId);
-  if (item && item.amount + deltaValue > 0) {
-    item.amount += deltaValue;
+  if (item && item.amount + change > 0) {
+    item.amount += change;
     updateBasketItemUI(productId);
     saveBasketToLocalStorage();
   }
