@@ -1,7 +1,7 @@
 const products = [
   {
     "id": "g1",
-    "name": "Dragon Ball (SNES)",
+    "name": "Dragon Ball Z - Utlimate Menace (SNES)",
     "category": "games",
     "price": 29.9,
     "image": "assets/imgs/DragonBall-SNES.webp",
@@ -36,11 +36,11 @@ const products = [
   },
   {
     "id": "g5",
-    "name": "Super Mario Bros. (SNES)",
+    "name": "Super Mario Bros. (NES)",
     "category": "games",
     "price": 24.9,
-    "image": "assets/imgs/Super-Mario-SNES.webp",
-    "description": "The timeless platforming classic for the SNES.",
+    "image": "assets/imgs/Super-Mario-NES.webp",
+    "description": "The timeless platforming classic for the NES.",
   },
   {
     "id": "g6",
