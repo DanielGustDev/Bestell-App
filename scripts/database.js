@@ -127,4 +127,12 @@ const products = [
     "description":
       "DualShock controller featuring analog sticks for the original PlayStation.",
   },
+  {
+    "id": "p5",
+    "name": "NES Zapper",
+    "category": "periphery",
+    "price": 29.9,
+    "image": "assets/imgs/NES-Zapper.webp",
+    "description": "Original light gun for the NES.",
+  },
 ];
