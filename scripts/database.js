@@ -39,7 +39,7 @@ const products = [
     "name": "Super Mario Bros. (NES)",
     "category": "games",
     "price": 24.9,
-    "image": "assets/imgs/Super-Mario-NES.webp",
+    "image": "assets/imgs/Super-Mario-Bros-NES.webp",
     "description": "The timeless platforming classic for the NES.",
   },
   {
