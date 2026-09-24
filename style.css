@@ -217,6 +217,7 @@ header nav {
     width: 100%;
 
     margin-top: 16px;
+    scroll-margin-top: 16px;
 
     background-color: var(--background-tertiary);
 
@@ -243,7 +244,7 @@ header nav {
     top: 0;
     left: 100%;
 
-    width: calc(max(0px, (100vw - 1440px) / 2) + clamp(280px, 30vw, 400px));
+    width: calc(max(0px, (100vw - 1440px) / 2) + clamp(330px, 25vw, 400px));
 
     height: 100%;
 
@@ -259,6 +260,7 @@ header nav {
     height: 60px;
 
     padding-left: clamp(16px, 8vw, 170px);
+
 }
 
 .category-header-content h2 {
@@ -307,4 +309,10 @@ footer a:hover {
 
 footer a:visited {
     color: var(--accent);
+}
+
+@media (min-width: 1100px) and (max-width: 1580px) {
+    .category-header-band::after {
+        width: 28.5vw;
+    }
 }

@@ -254,10 +254,16 @@ function updateItemActionButtonDOM(itemElement, amount, id) {
  */
 function updateItemDOMValues(itemElement, item) {
   if (!itemElement || !item) return;
-
   updateItemAmountDOM(itemElement, item.amount);
   updateItemPriceDOM(itemElement, item.price, item.amount);
   updateItemActionButtonDOM(itemElement, item.amount, item.id);
+  const topDeleteContainer = itemElement.querySelector(".top-delete-container");
+  if (topDeleteContainer) {
+    topDeleteContainer.innerHTML =
+      item.amount > 1
+        ? `<button type="button" class="delete-item-btn" aria-label="Remove item" onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`
+        : "";
+  }
 }
 
 /**
@@ -293,13 +299,44 @@ function addToBasket(productId) {
     basketItem.amount++;
     updateBasketItemUI(productId);
   } else {
-    if (typeof products === "undefined" || !Array.isArray(products)) return;
-    const product = products.find((product) => product.id === productId);
-    if (!product) return;
-    basket.push({ ...product, amount: 1 });
-    renderBasket();
+    handleNewBasketItem(productId);
   }
+
   saveBasketToLocalStorage();
+}
+
+/**
+ * Handles adding a completely new product to the basket state and DOM.
+ * @param {string} productId - Identifier of the product.
+ */
+function handleNewBasketItem(productId) {
+  if (typeof products === "undefined" || !Array.isArray(products)) return;
+  const product = products.find((product) => product.id === productId);
+  if (!product) return;
+  const newItem = { ...product, amount: 1 };
+  basket.push(newItem);
+  if (basket.length === 1) {
+    renderBasket();
+  } else {
+    appendItemToBasketDOM(newItem);
+  }
+}
+
+/**
+ * Appends a new item HTML string into the #basket-items-list container and updates totals.
+ * @param {BasketItem} newItem - Basket item object to append.
+ */
+function appendItemToBasketDOM(newItem) {
+  const itemHtml = getBasketItemTemplate(newItem);
+  ["basket", "mobile-basket-container"].forEach((containerId) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const itemsList = container.querySelector("#basket-items-list");
+    if (itemsList) {
+      itemsList.insertAdjacentHTML("beforeend", itemHtml);
+    }
+  });
+  updateSummaryUI();
 }
 
 /**
@@ -334,7 +371,16 @@ const decreaseAmount = (productId) => updateAmount(productId, -1);
  */
 function deleteBasketItem(productId) {
   basket = basket.filter((item) => item.id !== productId);
-  renderBasket();
+  if (basket.length === 0) {
+    renderBasket(); // Lädt das leere Template
+  } else {
+    // Entfernt nur die betroffenen DOM-Elemente dieses Produkts
+    const itemElements = document.querySelectorAll(
+      `[data-product-id="${productId}"]`,
+    );
+    itemElements.forEach((el) => el.remove());
+    updateSummaryUI();
+  }
   saveBasketToLocalStorage();
 }
 

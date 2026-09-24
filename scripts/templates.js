@@ -38,7 +38,7 @@ function getSingleProductTemplate(product) {
         <section class="product-card">
             <img src="${product.image}" alt="${product.name}">
             <div class="product-title">
-                <h3>${product.name}</h3>
+                <h4>${product.name}</h4>
                 <p>${product.description}</p>
             </div>
             <div class="price-plus-button">
@@ -72,7 +72,7 @@ function getCategoryHeaderTemplate(categoryTitle) {
     <div id="category-${categoryClass}" class="category-header-band ${categoryClass}">
       <div class="category-header-content">
         <div class="category-icon"></div>
-        <h2 id="category-${categoryClass}-title">${categoryTitle}</h2>
+        <h3 id="category-${categoryClass}-title">${categoryTitle}</h3>
       </div>
     </div>
   `;
@@ -112,7 +112,7 @@ function getEmptyBasketTemplate() {
 
 /**
  * Generates HTML markup for item quantity control buttons.
- * @param {{id: string, name: string, amount: number}} item - Basket item object.
+ * @param {{id: string, name: string, amount: number, price: number}} item - Basket item object.
  * @returns {string} Formatted HTML string for basket controls.
  */
 function getBasketControlsTemplate(item) {
@@ -134,16 +134,22 @@ function getBasketControlsTemplate(item) {
  */
 function getBasketItemTemplate(item) {
   const totalItemPrice = formatPrice((item.price || 0) * (item.amount || 0));
-
+  const topDeleteButton =
+    item.amount > 1
+      ? `<button type="button" class="delete-item-btn" aria-label="Remove ${item.name} from basket" onclick="deleteBasketItem('${item.id}')">${getTrashIconSvg()}</button>`
+      : "";
   return `
-        <div class="basket-item" data-product-id="${item.id}">
-            <p class="basket-item-title"><span class="item-title-amount">${item.amount}</span> x ${item.name}</p>
-            <div class="basket-controls">
-                ${getBasketControlsTemplate(item)}
-                <div class="basket-item-price"><p>${totalItemPrice} €</p></div>
-            </div>
-        </div>
-    `;
+    <div class="basket-item" data-product-id="${item.id}">
+      <div class="basket-item-header">
+        <p class="basket-item-title"><span class="item-title-amount">${item.amount}</span> x ${item.name}</p>
+        <div class="top-delete-container">${topDeleteButton}</div>
+      </div>
+      <div class="basket-controls">
+        ${getBasketControlsTemplate(item)}
+        <div class="basket-item-price"><p>${totalItemPrice} €</p></div>
+      </div>
+    </div>
+  `;
 }
 
 /**

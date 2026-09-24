@@ -11,7 +11,7 @@
     flex-direction: column;
 
     min-height: 400px;
-    height: 700px;
+    height: clamp(580px, 95dvh, 750px);
     width: 100%;
 
     position: sticky;
@@ -28,7 +28,7 @@
     z-index: 4;
 }
 
-.basket-card h2 {
+.basket-card h3 {
     text-align: center;
     margin-bottom: 24px;
 }
@@ -63,6 +63,30 @@
     border-radius: 20px;
 }
 
+.basket-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.delete-item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
 .basket-controls {
     display: flex;
     justify-content: space-between;
@@ -84,6 +108,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    min-width: 16px;
 }
 
 .basket-items-list {
