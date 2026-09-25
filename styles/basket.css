@@ -4,6 +4,9 @@
 
     flex: 0 1 clamp(280px, 30vw, 400px);
     width: clamp(280px, 30vw, 400px);
+
+    position: relative;
+    z-index: 2;
 }
 
 .basket-card {
@@ -102,6 +105,8 @@
     border: none;
 
     font-weight: bold;
+    font-size: 1.5rem;
+    text-justify: center;
 }
 
 .action-button-container {
@@ -125,7 +130,7 @@
 
 .basket-summary {
     margin-top: auto;
-    padding: 36px 34px 59px 31px;
+    padding: 36px 24px 32px 24px;
 
     line-height: 2.2;
 }
@@ -144,18 +149,24 @@
 }
 
 .buy-now-button {
+    white-space: nowrap;
+
     height: 64px;
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
+    min-width: 0;
+
+    font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+    font-weight: bold;
+
+    padding: 0 12px;
 
     background-color: var(--background-primary);
 
-    font-size: 1.5rem;
-    font-weight: bold;
-
     border: none;
-
     border-radius: 60px;
+
+    cursor: pointer;
 }
 
 .basket-items-list::-webkit-scrollbar {

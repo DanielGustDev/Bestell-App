@@ -86,7 +86,10 @@ function getCategoryHeaderTemplate(categoryTitle) {
  */
 function getCategorySectionTemplate(categoryTitle, productsHtml) {
   const categoryClass = categoryTitle ? categoryTitle.toLowerCase() : "";
+  const headerHtml = getCategoryHeaderTemplate(categoryTitle);
+
   return `
+    ${headerHtml}
     <section class="category-block ${categoryClass}" aria-labelledby="category-${categoryClass}-title">
       <div class="products-grid">
         ${productsHtml}

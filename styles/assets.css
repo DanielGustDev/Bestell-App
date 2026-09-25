@@ -77,8 +77,8 @@ button {
 }
 
 .modal-card {
-    background-color: var(--background-secondary);
-    color: var(--font-primary);
+    background-color: var(--background-primary);
+    color: var(--background-secondary);
 
     width: clamp(300px, 15vh, 400px);
 
@@ -129,7 +129,7 @@ button {
 }
 
 .modal-card:popover-open::backdrop {
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(8px);
     opacity: 1;
 }
 

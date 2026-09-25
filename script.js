@@ -101,10 +101,8 @@ function createCategoryHtml(category) {
   const filteredProducts = filterProductsByCategory(products, category);
   const productsHtml = createProductListHtml(filteredProducts);
   const title = category ? category.toUpperCase() : "";
-  return (
-    getCategoryHeaderTemplate(title) +
-    getCategorySectionTemplate(title, productsHtml)
-  );
+
+  return getCategorySectionTemplate(title, productsHtml);
 }
 
 /**
