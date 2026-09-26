@@ -227,6 +227,10 @@
         font-size: 1.2rem;
     }
 
+    .disclaimer-text h1 {
+        font-size: 2rem;
+    }
+
     body footer {
         margin-top: 32px;
     }
