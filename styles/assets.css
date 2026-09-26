@@ -77,8 +77,8 @@ button {
 }
 
 .modal-card {
-    background-color: var(--background-primary);
-    color: var(--background-secondary);
+    background-color: var(--background-secondary);
+    color: var(--background-primary);
 
     width: clamp(300px, 15vh, 400px);
 
@@ -141,7 +141,9 @@ button {
 }
 
 .modal-card button {
-    color: var(--font-primary);
+    background-color: var(--background-primary);
+    color: var(--background-secondary);
+
     align-self: flex-end;
     margin-bottom: 16px;
 }

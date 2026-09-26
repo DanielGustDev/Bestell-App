@@ -98,27 +98,49 @@
 .amount-buttons {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
-.amount-buttons button {
-    border: none;
-
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-justify: center;
-}
 
 .action-button-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 24px;
+    height: 24px;
+}
 
-    min-width: 16px;
+
+.amount-buttons button,
+.item-amount-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+
+    min-width: 20px;
+    height: 24px;
+}
+
+.action-button-container button {
+    transform: translateY(-1px);
+}
+
+.action-button-container button svg {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 .basket-items-list {
-    max-height: 350px;
+    max-height: 370px;
     overflow-y: auto;
 
     display: flex;

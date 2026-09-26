@@ -87,7 +87,10 @@
         align-items: center;
         gap: 0px;
 
-        padding-left: 0px;
+        width: 100%;
+        padding-inline: 0;
+
+        text-align: center;
     }
 
     .products-grid {
