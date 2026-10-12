@@ -7,6 +7,8 @@ A responsive, single-page web application for browsing retro video games and man
 ## Project Structure
 
 ```text
+
+.
 Bestell-App/
 ├── assets/
 │   ├── fonts/         # Custom typography webfonts
